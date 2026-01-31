@@ -1,0 +1,500 @@
+/* ========================================
+   CSS Variables - Gyatt Hash Brutal Palette
+   ======================================== */
+:root {
+  --color-bg: #F7F3EA;
+  --color-surface: #FFFFFF;
+  --color-text: #14131A;
+  --color-muted: #4E4A57;
+  --color-border: #1E1C25;
+  --color-primary: #2B2A6E;
+  --color-secondary: #0F8A7A;
+  --color-accent: #FF4D8D;
+  --radius: 14px;
+  --shadow: 6px 6px 0 #1E1C25;
+  --space: 1rem;
+  --maxw: 72rem;
+  --font-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-mono: 'Courier New', Courier, monospace;
+}
+
+/* ========================================
+   Reset & Base Styles
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  font-family: var(--font-base);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================================
+   Typography
+   ======================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--space);
+  color: var(--color-primary);
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+p {
+  margin-bottom: var(--space);
+}
+
+a {
+  color: var(--color-secondary);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+strong {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+ul, ol {
+  margin-bottom: var(--space);
+  padding-left: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* ========================================
+   Layout - Grid & Flexbox
+   ======================================== */
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--space);
+}
+
+.site-header {
+  background-color: var(--color-surface);
+  border-bottom: 4px solid var(--color-border);
+  padding: var(--space) 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space);
+}
+
+.site-branding .site-name {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.site-nav a {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border: 3px solid var(--color-border);
+  background-color: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: 3px 3px 0 var(--color-border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--color-border);
+}
+
+.site-nav a[aria-current="page"] {
+  background-color: var(--color-accent);
+  color: var(--color-surface);
+}
+
+.site-main {
+  flex: 1;
+  padding: 2rem 0;
+}
+
+.site-main .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .site-main .container {
+    grid-template-columns: 2fr 1fr;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+.content-primary {
+  background-color: var(--color-surface);
+  border: 4px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.content-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebar-card {
+  background-color: var(--color-surface);
+  border: 4px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.sidebar-card h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+}
+
+.sidebar-card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar-card li {
+  margin-bottom: 0.75rem;
+}
+
+.sidebar-card a {
+  color: var(--color-secondary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.sidebar-card a:hover {
+  text-decoration: underline;
+}
+
+.site-footer {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  padding: 1.5rem 0;
+  text-align: center;
+  border-top: 4px solid var(--color-border);
+  margin-top: 2rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+/* ========================================
+   Breadcrumbs
+   ======================================== */
+.breadcrumbs {
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.breadcrumbs a {
+  color: var(--color-secondary);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+/* ========================================
+   Tables - Neo-brutalist with zebra rows
+   ======================================== */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 2rem;
+  border: 4px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+thead {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+@media (min-width: 768px) {
+  thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 2px solid var(--color-border);
+}
+
+th {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: var(--color-bg);
+}
+
+tbody tr:nth-child(even) {
+  background-color: var(--color-surface);
+}
+
+tbody tr:hover {
+  background-color: rgba(255, 77, 141, 0.1);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 767px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* ========================================
+   Details/Summary - Accordion Styling
+   ======================================== */
+details {
+  background-color: var(--color-surface);
+  border: 3px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 4px 4px 0 var(--color-border);
+  transition: box-shadow 0.2s ease;
+}
+
+details:hover,
+details:focus-within {
+  box-shadow: 6px 6px 0 var(--color-border);
+}
+
+details[open] {
+  background-color: var(--color-bg);
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--color-primary);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::before {
+  content: '▶';
+  display: inline-block;
+  transition: transform 0.2s ease;
+  color: var(--color-accent);
+}
+
+details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+summary:hover,
+summary:focus-visible {
+  color: var(--color-accent);
+}
+
+summary:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.faq-answer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.faq-section {
+  margin-top: 2rem;
+}
+
+.faq-additional {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 4px solid var(--color-border);
+}
+
+/* ========================================
+   Blockquote - Accent Highlight
+   ======================================== */
+blockquote {
+  background-color: rgba(255, 77, 141, 0.1);
+  border-left: 6px solid var(--color-accent);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: var(--radius);
+  font-style: italic;
+  color: var(--color-text);
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+blockquote strong {
+  color: var(--color-accent);
+  font-style: normal;
+}
+
+/* ========================================
+   Sections & Articles
+   ======================================== */
+section {
+  margin-bottom: 2.5rem;
+}
+
+section:last-child {
+  margin-bottom: 0;
+}
+
+article {
+  overflow-wrap: break-word;
+}
+
+/* ========================================
+   Focus & Accessibility
+   ======================================== */
+*:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   Responsive Typography
+   ======================================== */
+@media (min-width: 768px) {
+  body {
+    font-size: 1.0625rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    font-size: 1.125rem;
+  }
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
